@@ -1,0 +1,179 @@
+
+
+
+cn <- odbcDriverConnect(connection="Driver={SQL Server Native Client 
+   11.0};server=SHIVAM;database=AdventureWorks2012_Data;trusted_connection=yes;")
+
+dataFetchEUR <- sqlFetch(odbcChannel, 'dbo.DimReseller', colnames=TRUE)
+
+databind=cbind(mydata,Resandpointlaat)
+
+Resandpointlaat=line=="Residential" & point_latitude>30.10226 
+
+
+Commercialaswood=Commercial[construction=="wood",]
+
+getwd()
+
+
+setwd("C:/Users/DELL/Documents")
+
+save.image("myfirstproject.Rdata")
+
+q()
+
+load("myfirstproject.Rdata")-- the image file should be in the same working directory
+
+
+table(county)
+
+count=table(county)
+
+
+
+> count1=table(line)
+
+
+> percent=count1/36634
+> percent
+line
+ Commercial Residential 
+  0.1582137   0.8417863 
+> barplot(count1)
+> barplot(percent)
+> barplot(count1)
+
+> barplot(percent,main="TITLE",xlab="Plots Avilable",ylab="%")
+> barplot(percent,main="TITLE",xlab="Plots Avilable",ylab="%",las="1")
+> barplot(percent,main="TITLE",xlab="Plots Avilable",ylab="%",las="1",names.arg=c("commercial","Resedential"))
+> barplot(percent,main="TITLE",ylab="Plots Avilable",yxlab="%",las="1",names.arg=c("commercial","Resedential"),horiz=TRUE)
+
+> barplot(percent,main="TITLE",ylab="Plots Avilable",xlab="%",las="1",names.arg=c("commercial","Resedential"),horiz=TRUE)
+> pie(percent)
+> box()
+
+> boxplot(mydata~eq_site_limit)
+
+>convert avariable to categorical variable.
+
+>catHeight=cut(policyID,breaks=c(0, 200000,400000,600000,800000,1000000),labels=c("A","B","C","D","E"))
+
+>catHeight=cut(policyID,breaks=c(0, 200000,400000,600000,800000,1000000),labels=c("A","B","C","D","E"),right=FALSE)
+
+> hist(point_granularity)
+
+> hist(point_granularity)
+> hist(point_granularity,freq=F)
+> hist(point_granularity,prob=T)
+> hist(point_granularity,prob=T,ylimit=c(0,2))
+> hist(point_granularity,prob=T,ylim=c(0,2))
+t(point_granularity,prob=T,ylim=c(0,2))
+> hist(point_granularity,prob=T,ylim=c(0,2),breaks=4)
+> hist(point_granularity,prob=T,ylim=c(0,2),breaks=14)
+> hist(point_granularity,prob=T,ylim=c(0,2),breaks=c(0,2,4,6,8,10,12,14,16,18))
+> hist(point_granularity,prob=T,ylim=c(0,2),breaks=seq(from=0,to=12,by=2))
+>  lines(desnsity(point_granularity))
+
+> lines(density(point_granularity))
+> lines(density(point_granularity),col=2,lwd=3)
+stem(point_granularity)
+> stem(point_granularity,scale=2)
+> table1=table(line,construction)
+> table1
+> barplot(table1)
+> barplot(table1,beside=T)
+> barplot(table1,beside=T,legend.text=T)
+> barplot(table1,beside=T,legend.text=c("Commmercial Used","Residential Use"))
+> barplot(table1,beside=T,legend.text=c("Commmercial Used","Residential Use"),main="Construction Usage in USA",xlab="Material Used",las=1,col=c(2,4))
+>mosaicplot(table1)
+plot(eq_site_limit,hu_site_limit)
+plot(eq_site_limit,hu_site_limit,las=1,xlim=c(0,250))
+> plot(eq_site_limit,hu_site_limit,las=1,xlim=c(0,250),cex=.5)
+> plot(eq_site_limit,hu_site_limit,las=1,xlim=c(0,250),pch=8)
+>abline(lm(eq_site_limit~hu_site_limit),col=5)
+>lines(smooth.spline(eq_site_limit~hu_site_limit),lty=2,lwd=3)
+> mean(policyID)
+> mean(policyID,trim=0.10)
+> median(policyID)
+> var(policyID)
+> sd(policyID)
+> sqrt(var(policyID))
+> sd(policyID)^2
+> min(policyID)
+> max(policyID)
+> range(policyID)
+> quantile(policyID,probs=.9)
+> quantile(policyID,probs=c(.2,.6,.78,.9))
+> cor(policyID,eq_site_limit)
+> cov(policyID,eq_site_limit)
+> plot(eq_site_limit,hu_site_limit,las=1,xlim=c(0,250),pch=8,col=5,cex.main=2,cex.lab=1.5,cex.axis=.7)
+> par(mfrow=c(1,2))
+>> plot(eq_site_limit,hu_site_limit,axes=T)
+> abline(h=mean(hu_site_limit),col=2,lwd=2)
+> plot(eq_site_limit,hu_site_limit,axes=T,xlim=c(0,250))
+> plot(eq_site_limit,hu_site_limit,axes=T,ylim=c(0,250))
+> plot(eq_site_limit,hu_site_limit,axes=T,ylim=c(0,250),xlim=c(0,250))
+> abline(h=mean(hu_site_limit),col=2,lwd=2)
+> mtext(text="=-.005278",side=3,adj=1,col=4,cex=1.25)
+> mtext(text="=-.005278",side=3,adj=0,col=4,cex=1.25)
+> > legend(x=3.5,y=5,legend=c("eq_site_limit","hu_site_limit"),fill=c(4,2))
+>#P(X)=3
+> dbinom(x=3,size=20,prob=1/6)
+> dbinom(x=0:3,size=20,prob=1/6)
+> sum(dbinom(x=0:3,size=20,prob=1/6))
+> # P(X<=70)
+> pnorm(q=70,mean=75,sd=5,lower.tail=T)
+[1] 0.1586553
+> pnorm(q=70,mean=75,sd=5,lower.tail=F)
+[1] 0.8413447
+> pnorm(q=85,mean=75,sd=5,lower.tail=F)
+[1] 0.02275013
+> qnorm(q=.25,mean=75,sd=5,lower.tail=T)
+Error in qnorm(q = 0.25, mean = 75, sd = 5, lower.tail = T) : 
+  unused argument (q = 0.25)
+> qnorm(p=.25,mean=75,sd=5,lower.tail=T)
+[1] 71.62755
+> probablity density function
+Error: unexpected symbol in "probablity density"
+> x=seq(from=55,to=105,by=.50)
+> x
+  [1]  55.0  55.5  56.0  56.5  57.0  57.5  58.0  58.5  59.0  59.5  60.0  60.5  61.0  61.5  62.0  62.5  63.0  63.5  64.0  64.5  65.0  65.5
+ [23]  66.0  66.5  67.0  67.5  68.0  68.5  69.0  69.5  70.0  70.5  71.0  71.5  72.0  72.5  73.0  73.5  74.0  74.5  75.0  75.5  76.0  76.5
+ [45]  77.0  77.5  78.0  78.5  79.0  79.5  80.0  80.5  81.0  81.5  82.0  82.5  83.0  83.5  84.0  84.5  85.0  85.5  86.0  86.5  87.0  87.5
+ [67]  88.0  88.5  89.0  89.5  90.0  90.5  91.0  91.5  92.0  92.5  93.0  93.5  94.0  94.5  95.0  95.5  96.0  96.5  97.0  97.5  98.0  98.5
+ [89]  99.0  99.5 100.0 100.5 101.0 101.5 102.0 102.5 103.0 103.5 104.0 104.5 105.0
+> dens=dnorm(x,mean=75,sd=5)
+> dens
+  [1] 2.676605e-05 3.973109e-05 5.838939e-05 8.495605e-05 1.223804e-04 1.745365e-04 2.464438e-04 3.445138e-04 4.768176e-04 6.533638e-04
+ [11] 8.863697e-04 1.190506e-03 1.583090e-03 2.084187e-03 2.716594e-03 3.505660e-03 4.478906e-03 5.665408e-03 7.094919e-03 8.796719e-03
+ [21] 1.079819e-02 1.312316e-02 1.579003e-02 1.880982e-02 2.218417e-02 2.590352e-02 2.994549e-02 3.427372e-02 3.883721e-02 4.357044e-02
+ [31] 4.839414e-02 5.321705e-02 5.793831e-02 6.245079e-02 6.664492e-02 7.041307e-02 7.365403e-02 7.627756e-02 7.820854e-02 7.939051e-02
+ [41] 7.978846e-02 7.939051e-02 7.820854e-02 7.627756e-02 7.365403e-02 7.041307e-02 6.664492e-02 6.245079e-02 5.793831e-02 5.321705e-02
+ [51] 4.839414e-02 4.357044e-02 3.883721e-02 3.427372e-02 2.994549e-02 2.590352e-02 2.218417e-02 1.880982e-02 1.579003e-02 1.312316e-02
+ [61] 1.079819e-02 8.796719e-03 7.094919e-03 5.665408e-03 4.478906e-03 3.505660e-03 2.716594e-03 2.084187e-03 1.583090e-03 1.190506e-03
+ [71] 8.863697e-04 6.533638e-04 4.768176e-04 3.445138e-04 2.464438e-04 1.745365e-04 1.223804e-04 8.495605e-05 5.838939e-05 3.973109e-05
+ [81] 2.676605e-05 1.785233e-05 1.178861e-05 7.707039e-06 4.988494e-06 3.196748e-06 2.028170e-06 1.273965e-06 7.922598e-07 4.877921e-07
+ [91] 2.973439e-07 1.794487e-07 1.072207e-07 6.342698e-08 3.714724e-08 2.153952e-08 1.236524e-08 7.027910e-09 3.954639e-09 2.203153e-09
+[101] 1.215177e-09
+> plot(x,dens)
+> plot(x,dens,type="l")
+> rand=rnorm(n=40,mean=75,sd=5)
+> hist(rand)
+> #t-stat=2.3,df=25
+> #one side p value
+> #p(t>2.3)
+> pt(q=2.3,df=25,lower.tail=F)
+[1] 0.01503675
+> #two sided p value
+> pt(q=2.3,df=25,lower.tail=F)+pt(q=2.3,df=25,lower.tail=T)
+[1] 1
+> pt(q=2.3,df=25,lower.tail=F)+pt(q=-2.3,df=25,lower.tail=T)
+[1] 0.03007351
+> #t value for 95% confidence
+> #value of t with 2.5% in each tail
+> qt(q=.25,df=25,lower.tail=T)
+Error in qt(q = 0.25, df = 25, lower.tail = T) : 
+  unused argument (q = 0.25)
+> qt(p=.25,df=25,lower.tail=T)
+[1] -0.68443
+
